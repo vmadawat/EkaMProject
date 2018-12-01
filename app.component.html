@@ -1,0 +1,49 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+
+<h2>create sales request </h2>
+
+Name: <input type="text" [value]="name"        (input)="name=$event.target.value"><br>
+
+Quality: <input type="text" [value]="quality"  (input)="quality=$event.target.value"><br>
+
+Quantity: <input type="text" [value]="quantity"(input)="quantity=$event.target.value"><br>
+
+Price: <input type="text" [value]="price"      (input)="price=$event.target.value"><br>
+
+
+
+
+<input type="button" (click)="add()" value="Add">
+
+<div>
+
+<table>
+
+<tr *ngFor="let x of contacts; let i = index">
+
+<!-- <td><input type="text" [value]="x.id" (input)="x.id=$event.target.value" [disabled]="!x.isEditable"/></td> -->
+<!-- 
+<td><input type="text" [value]="x.text" (input)="x.text=$event.target.value" [disabled]="!x.isEditable"/></td> -->
+
+<td>{{x.price}}</td>
+<td>{{x.quality}}</td>
+
+<td><button (click)="deleteFieldValue(i)">Delete</button></td>
+
+<td><button (click)="x.isEditable=!x.isEditable" *ngIf="!x.isEditable">Edit</button>
+
+<button *ngIf="x.isEditable" (click)="x.isEditable=!x.isEditable">Save</button>
+
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<router-outlet></router-outlet><p>
+  sales-order works!
+</p>
