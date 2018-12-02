@@ -7,8 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
@@ -18,13 +16,9 @@ public class SalesOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NotBlank
 	private String name;
-	@NotBlank
 	private String quality;
-	@NotBlank
 	private Long quantity;
-	@NotBlank
 	private double price;
 
 
@@ -32,22 +26,20 @@ public class SalesOrder {
 
 	}
 
-	public SalesOrder(String name) {
-		this.setName(name);
-		this.setName(quality);
-	}
-	public SalesOrder(Long quantity) {
-		this.setQuantity(quantity);
-	}
 	
-	public SalesOrder(double price) {
-		this.setPrice(price);
-	}
 	
+	public SalesOrder(Long id, String name, String quality, Long quantity, double price) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.quality = quality;
+		this.quantity = quantity;
+		this.price = price;
+	}
+
 	public Long getId() {
 		return id;
 	}
-	
 	public void setId(Long id) {
 		this.id = id;
 	}

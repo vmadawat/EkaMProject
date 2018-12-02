@@ -2,8 +2,8 @@
 package com.example.demo.salesOrderDao;
 
 import java.util.List;
+import java.util.Optional;
 
-import org.apache.catalina.authenticator.SavedRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,8 +27,8 @@ public class SalesOrderDao{
 	}	
 	/*get a salesOrder by id*/
 	
-    public SalesOrder findOne(Long salesid){
-    	return salesRepository.findOne(salesid);
+    public Optional<SalesOrder> getOne(Long salesid){
+    	return salesRepository.findById(salesid);
     }
 	
 	/*delete a salesOrder */

@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -36,7 +37,7 @@ public class SalesController{
 	
 	/*get all salesOrder*/
 	
-	@GetMapping("/salesOrder")
+	@GetMapping("/salesOrders")
 	public List<SalesOrder> getAllSales(){
 		return salesOrderDao.findAll();
 	}
@@ -45,9 +46,10 @@ public class SalesController{
 	/*get all salesOrder by id*/
 	
 	@GetMapping("/salesOrder/{id}")
-	public ResponseEntity<SalesOrder> getSalesOrderById(@PathVariable(value="id") Long salesid)
+	public ResponseEntity<SalesOrder> getSalesOrderById(
+			@PathVariable(value="id") Long salesid)
 	{
-		SalesOrder salesOrder=salesOrderDao.findOne(salesid);
+		SalesOrder salesOrder = findValueOfSalesOrder(salesid);
 		if(salesOrder==null) 
 		{
 			return ResponseEntity.notFound().build();
@@ -57,9 +59,11 @@ public class SalesController{
 	
 	/*update an salesOrder by salesid*/
 	@PutMapping("/salesOrder/{id}")
-	public ResponseEntity<SalesOrder> updateSalesOrder(@PathVariable(value="id") Long salesid,@Valid @RequestBody SalesOrder salesDetails)
+	public ResponseEntity<SalesOrder> updateSalesOrder(
+			@PathVariable(value="id") Long salesid,
+			@Valid @RequestBody SalesOrder salesDetails)
 	{
-		SalesOrder salesOrder=salesOrderDao.findOne(salesid);
+		SalesOrder salesOrder=findValueOfSalesOrder(salesid);
 		if(salesOrder==null) 
 		{
 			return ResponseEntity.notFound().build();
@@ -77,13 +81,18 @@ public class SalesController{
 	
 	@DeleteMapping("/salesOrder/{id}")
 	public ResponseEntity<SalesOrder> updateSalesOrder(@PathVariable(value="id") Long salesid){
-		SalesOrder salesOrder=salesOrderDao.findOne(salesid);
+		SalesOrder salesOrder = findValueOfSalesOrder(salesid);
 		if(salesOrder==null) 
 		{
 			return ResponseEntity.notFound().build();
 		}
 		salesOrderDao.delete(salesOrder);
 		return ResponseEntity.ok().build();
+	}
+
+	private SalesOrder findValueOfSalesOrder(Long salesid) {
+		Optional<SalesOrder> salesOrder=salesOrderDao.getOne(salesid);
+		return salesOrder.get();
 	}
 	
 }
