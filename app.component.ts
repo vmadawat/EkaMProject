@@ -26,7 +26,7 @@ price = '100';
 contacts: any = [ ];
 
 add(){
- this.contacts.push({id:this.name,quality:this.quality,quantity:this.quantity,price:this.price});
+ this.contacts.push({name:this.name,quality:this.quality,quantity:this.quantity,price:this.price});
 
 this.name ='Gautham';
 

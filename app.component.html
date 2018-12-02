@@ -1,25 +1,26 @@
-<!--The content below is only a placeholder and can be replaced.-->
+ <!--The content below is only a placeholder and can be replaced.-->
 
 
 
-<h2>create sales request </h2>
+ <h2>create sales request </h2>
 
-Name: <input type="text" [value]="name"        (input)="name=$event.target.value"><br>
+ <div>Name: <input type="text" [value]="name"        (input)="name=$event.target.value"><br></div>
+ 
+ <div>Quality: <input type="text" [value]="quality"  (input)="quality=$event.target.value"><br></div>
+ 
+ <div>Quantity: <input type="text" [value]="quantity"(input)="quantity=$event.target.value"><br></div>
+ 
+ <div>Price: <input type="text" [value]="price"      (input)="price=$event.target.value"><br></div>
+ 
+ 
+ <button (click)="add()">Submit</button>
+ 
+ <div>
 
-Quality: <input type="text" [value]="quality"  (input)="quality=$event.target.value"><br>
+<table class="table">
+  <tbody>
 
-Quantity: <input type="text" [value]="quantity"(input)="quantity=$event.target.value"><br>
-
-Price: <input type="text" [value]="price"      (input)="price=$event.target.value"><br>
-
-
-
-
-<input type="button" (click)="add()" value="Add">
-
-<div>
-
-<table>
+ 
 
 <tr *ngFor="let x of contacts; let i = index">
 
@@ -27,10 +28,12 @@ Price: <input type="text" [value]="price"      (input)="price=$event.target.valu
 <!-- 
 <td><input type="text" [value]="x.text" (input)="x.text=$event.target.value" [disabled]="!x.isEditable"/></td> -->
 
+<td>{{x.name}}</td>
 <td>{{x.price}}</td>
 <td>{{x.quality}}</td>
+<td>{{x.quantity}}</td>
 
-<td><button (click)="deleteFieldValue(i)">Delete</button></td>
+<td><button class="btn btn-danger"(click)="deleteFieldValue(i)">Delete</button></td>
 
 <td><button (click)="x.isEditable=!x.isEditable" *ngIf="!x.isEditable">Edit</button>
 
@@ -40,10 +43,16 @@ Price: <input type="text" [value]="price"      (input)="price=$event.target.valu
 
 </tr>
 
+</tbody>
+
 </table>
 
 </div>
 
-<router-outlet></router-outlet><p>
-  sales-order works!
-</p>
+
+
+
+
+<router-outlet></router-outlet>
+ 
+
