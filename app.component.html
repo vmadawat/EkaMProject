@@ -1,19 +1,19 @@
  <!--The content below is only a placeholder and can be replaced.-->
 
 
+  <div>
 
- <h2>create sales request </h2>
-
- <div>Name: <input type="text" [value]="name"        (input)="name=$event.target.value"><br></div>
+ <h2 class="center" >create sales request </h2>
+ <div class="center">Name: <input type="text" [value]="name"        (input)="name=$event.target.value"><br></div>
  
- <div>Quality: <input type="text" [value]="quality"  (input)="quality=$event.target.value"><br></div>
+ <div class="center">Quality: <input type="text" [value]="quality"  (input)="quality=$event.target.value"><br></div>
  
- <div>Quantity: <input type="text" [value]="quantity"(input)="quantity=$event.target.value"><br></div>
+ <div class="center">Quantity: <input type="text" [value]="quantity"(input)="quantity=$event.target.value"><br></div>
  
- <div>Price: <input type="text" [value]="price"      (input)="price=$event.target.value"><br></div>
+ <div class="center">Price: <input type="text" [value]="price"      (input)="price=$event.target.value"><br></div>
  
  
- <button (click)="add()">Submit</button>
+ <button (click)="add()" class="center" style="border-color:aqua">Submit</button>
  
  <div>
 
@@ -50,9 +50,7 @@
 </div>
 
 
-
+</div>
 
 
 <router-outlet></router-outlet>
- 
-

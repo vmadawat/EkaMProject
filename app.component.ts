@@ -45,5 +45,9 @@ this.contacts.splice(index, 1);
 
 }
 
+save(): void {
+  this.contacts.updateHero(this.contacts)
+    .subscribe(() => this.goBack());
 }
 
+}
