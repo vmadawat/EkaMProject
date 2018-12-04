@@ -1,7 +1,7 @@
 import { Component,Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SalesOrderServiceService } from './sales-order.service';
-import { setTimeout } from 'timers';
+
 
 
 @Component({
@@ -70,14 +70,7 @@ GenerateColor(){
 }
 toggle(id){
     this.editRowId = id;
-  //   setTimeout(() =>
-  //   this.input1.nativeElement.focus(),0
-  //   )
-  //   setTimeout(() =>{
-      // const element = this.renderer.selectRootElement('#input1');
-      // element.focus()
-  // },100)
-   
+ 
   }
 changeRowEdit(index){
     this.toggle(index)
