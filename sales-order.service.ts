@@ -11,7 +11,8 @@ export class SalesOrderServiceService {
 
      getSalesorder(){
        return this.http.get('')
-
-       
      }
+     
+       
+     
 }
