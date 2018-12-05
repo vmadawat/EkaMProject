@@ -1,0 +1,28 @@
+<div class="container">
+  <h1> Sales orders</h1>
+  <div style="text-align: right">
+    <button class="btn btn-info btn-sm" (click)="logout()">Logout</button>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Quality</th>
+            <th>Quantity</th>
+			<th>Price</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td style="color:black">{{user.id}}</td>
+                <td style="color:black">{{user.name}}</td>
+                <td style="color:black">{{user.quality}}</td>
+                <td style="color:black">{{user.quantity}}</td>
+                <td style="color:black">{{user.price}}</td>
+                <td style="color:black"><button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+                    <button class="btn btn-primary" (click)="updateUser(user)">Edit</button></td>
+
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary" (click)="newUser()">New User</button>
+</div>

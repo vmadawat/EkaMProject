@@ -1,0 +1,31 @@
+<div class="container backgnd">
+<h1 style="text-align:center; color: blue">Sales Order</h1>
+<div style="text-align: right">
+<button class="btn btn-info btn-sm" (click)="logout()">Logout</button>
+</div>
+<hr style="border-bottom:3px solid black;">
+    <form (ngSubmit)="addUser()">
+		<br>
+        <div class="form group">
+
+           <h5> <label for="name" style="color:blue">Name</label></h5>
+            <input type="text" name="name" class="form-control" [(ngModel)]="user.name" style="border-color:black">
+        </div>
+		<br>
+		    <div class="form group">
+            <h5><label for="quality" style="color:blue">Quality</label></h5>
+            <input type="text" name="quality" class="form-control" [(ngModel)]="user.quality" style="border-color:black ">
+        </div>
+		<br>
+		<div class="form group">
+            <h5><label for="quantity" style="color:blue">Quantity</label></h5>
+            <input type="number" name="quantity" class="form-control" [(ngModel)]="user.quantity" style="border-color:black ">
+    </div>
+		<br>
+        <div class="form group">
+            <h5><label for="price" style="color:blue">Price</label></h5>
+            <input type="number" name="price" class="form-control" [(ngModel)]="user.price" style="border-color:black ">
+        </div><br>
+        <input type="submit" value="save" class="btn btn-success">
+    </form>
+</div>

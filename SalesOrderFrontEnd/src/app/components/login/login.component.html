@@ -1,0 +1,17 @@
+<div class="container backgnd">
+  <h1 style="text-align:center; color: blue">Login Page</h1>
+  <hr style="border-bottom:5px solid black;">
+      <form (ngSubmit)="processForm()">
+
+      <div class="form group">
+              <label for="username">Username:</label>
+              <input type="string" name="username" class="form-control" [(ngModel)]="loginUser.username">
+          </div>
+      <br>
+          <div class="form group">
+              <label for="password">Password:</label>
+              <input type="password" name="password" class="form-control" [(ngModel)]="loginUser.password">
+          </div><br>
+          <input type="submit" value="Login" class="btn btn-success">
+      </form>
+  </div>
